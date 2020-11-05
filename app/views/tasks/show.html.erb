@@ -1,12 +1,12 @@
-<h1>id: <%= @task.id %> のタスク詳細ページ</h1>
-
-<p>状態:<%= @task.status %></p>
-<p>内容:<%= @task.content %></p>
-
-<p><%= link_to '一覧に戻る', root_url %></p>
-<div>
-  <% if current_user == @task.user %>
-    <p><%= link_to 'このタスクを編集する', edit_task_path(@task) %></p>
-    <p><%= link_to 'このタスクを削除する', @task, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %></p>
-  <% end %>
-</div>
+<ul class="list-unstyled">
+    <h1>id: <%= @task.id %> のタスク詳細ページ</h1>
+      <li>状態:<%= @task.status %></li>
+      <li>内容:<%= @task.content %></li>
+    <div>
+      <% if current_user == @task.user %>
+        <p><%= link_to 'このタスクを編集する', edit_task_path(@task) %></p>
+        <p><%= link_to 'このタスクを削除する', @task, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }%></p>
+      <% end %>
+    </div>
+  <%= link_to '一覧に戻る', root_url %></p>
+</ul>
