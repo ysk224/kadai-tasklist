@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:new, :create]
   
   def new
     @user = User.new
