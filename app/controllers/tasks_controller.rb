@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show, :new, :create, :update, :destroy]
+  before_action :require_user_logged_in, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
   
   def index
@@ -20,7 +20,7 @@ class TasksController < ApplicationController
       flash[:success] = '新規のタスクが正常に追加されました'
       redirect_to @task
     else
-      @task = current_user.tasks.order(id: :desc).page(params[:page])
+      @tasks = current_user.tasks.order(id: :desc).page(params[:page])
       flash.now[:danger] = '新規のタスクを追加してください'
       render :new
     end
